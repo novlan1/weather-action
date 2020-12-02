@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
-        uses: actions/checkout@v1
+        uses: actions/checkout@v1.2.6
       - name: 'Get Weather'
         run: bash ./weather.sh
       - name: 'Get Date'
