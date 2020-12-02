@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
-        uses: actions/checkout@v1.2.6
+        uses: actions/checkout@v1
       - name: 'Get Weather'
         run: bash ./weather.sh
       - name: 'Get Date'
-        run: ACTIONS_ALLOW_UNSECURE_COMMANDS=true;echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')"
+        # run: ACTIONS_ALLOW_UNSECURE_COMMANDS=true;echo "::set-env name=REPORT_DATE::"
+        run: echo "REPORT_DATE=$(TZ=':Asia/Shenzhen' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
